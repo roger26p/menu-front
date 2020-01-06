@@ -1,0 +1,34 @@
+<div class="container">
+  <form [formGroup]="loginForm" (submit)="submitlogin($event, loginForm.value)">
+    <div class="row m-5">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>Elije tu menú</h3>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <mat-form-field class="input-form-out input"> 
+          <input formControlName="user" matInput type="text" class="form-input" placeholder="Usuario">
+          <mat-hint>Introduzca su usuario</mat-hint>
+          <mat-error *ngIf="loginForm.controls['user'].hasError('required') && (loginForm.controls['user'].dirty || loginForm.controls['user'].touched)">
+            Usuario es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <br>
+        <mat-form-field class="input-form-out input">
+          <input formControlName="password" matInput type="password" class="form-input" placeholder="Contraseña">
+          <mat-hint>Introduzca su contraseña</mat-hint>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+            La contraseña es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-3">
+        <button class="btn btn-primary button" type="submit">Iniciar Sesión</button>
+      </div>
+    </div>
+  </form>
+</div>
